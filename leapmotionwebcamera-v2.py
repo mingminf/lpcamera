@@ -6,7 +6,7 @@ import datetime
 from Leap import CircleGesture, KeyTapGesture, ScreenTapGesture, SwipeGesture
 from scipy.spatial import distance
 
-DEBUG = True
+DEBUG = False
 
 class SampleListener(Leap.Listener):
     finger_names = ['Thumb', 'Index', 'Middle', 'Ring', 'Pinky']
@@ -81,7 +81,7 @@ def main():
         fourcc = cv2.VideoWriter_fourcc(*'MJPG') #"XVID" was tested and it did not work
         localtime = time.strftime("%H-%M-%S-%d-%m-%Y")
         outputvideo = cv2.VideoWriter('videoinstructions_'+ localtime +'.avi', fourcc, 20, (1920,1080))
-    #outputvideo = cv2.VideoWriter('videoinstructions.avi', fourcc, 20, (640,480))
+        #outputvideo = cv2.VideoWriter('videoinstructions.avi', fourcc, 20, (640,480))
 
     controller.set_policy_flags(Leap.Controller.POLICY_BACKGROUND_FRAMES)
     # opencv related content
